@@ -5,13 +5,16 @@ import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
 const Home = () => {
+	const prueba = ()=>{
+		console.log('HEYYY')
+	}
 	return (
 		<div className="text-center">
 			<h1 className="text-center mt-5">Hello Rigo!</h1>
 			<p>
 				<img src={rigoImage} />
 			</p>
-			<a href="#" className="btn btn-success">
+			<a href="#" className="btn btn-success" onClick={()=> prueba()}>
 				If you see this green button... bootstrap is working...
 			</a>
 			<p>
