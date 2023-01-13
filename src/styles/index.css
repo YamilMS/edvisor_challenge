@@ -1,3 +1,20 @@
-#nav{
+html{
+    min-height: 100vh;
+    position: relative;
+}
+
+body{
+    height: 100vh;
+}
+
+#contentApp{
+    height: 100vh;
+}
+
+#highlighter{
     background: red;
+}
+
+#highlighter2{
+    background: green;
 }
