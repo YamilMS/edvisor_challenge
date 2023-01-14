@@ -10,11 +10,16 @@ body{
 #contentApp{
     height: 100vh;
 }
-
-#highlighter{
-    background: red;
+#mainContent{
+    background: linear-gradient(to top,  #f6f6f6 0%,#f6f6f6 80%, #e2ecf1 80%,#e2ecf1 100%);
+}
+#containerSearchInputs{
+    background: white;
+}
+#btnSearchInputGroup{
+    padding-right: 0.5em;
 }
 
-#highlighter2{
-    background: green;
+#highlighter{
+    background: rgb(197, 230, 241, 0.5);
 }
