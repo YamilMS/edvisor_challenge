@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
+import { Country } from "./Country.jsx";
 import flag from "/public/mexFlag.jpg";
+import file from "/public/data.json"
 
 //create your first component
 const Home = () => {
-	const prueba = ()=>{
-		console.log('HEYYY')
-	}
+	const [campus, setCampus] = useState([]);
+	const [location, setLocation] = useState([]);
+
+	useEffect(()=>{
+		setCampus(file.data.getAvailableFiltersForLanguageSearch.campuses)
+		setLocation(file.data.getAvailableFiltersForLanguageSearch.locations)
+		
+		//console.log(location)
+	},[])
+	console.log(location)
+	console.log(campus.map(item=> item.id))
 	return (
 		<div>
 
@@ -71,7 +81,7 @@ const Home = () => {
 										person_outline
 									</span>
 									<div>
-									<img src={flag} className="mx-2" style={{height:"1em", width:"1.5em"}} alt="mexican flag" />
+									<img src={flag}  className="mx-2" style={{height:"1em", width:"1.5em"}} alt="mexican flag" />
 									</div>
 									<div className="fw-bold">
 										Mexico, Onshore
@@ -88,6 +98,7 @@ const Home = () => {
 												<option value="1">One</option>
 												<option value="2">Two</option>
 												<option value="3">Three</option>
+												<Country country={location}/>
 											</select>
 											<label className="mx-3" htmlFor="floatingSelect">Destination</label>
 										</div>
@@ -110,7 +121,7 @@ const Home = () => {
 											<label className="mx-3" htmlFor="floatingSelect">Min. number of weeks</label>
 										</div>
 										<div className="col align-self-center d-flex justify-content-center">
-											<button type="button" className="btn btn-primary my-auto d-flex" onClick={prueba}>
+											<button type="button" className="btn btn-primary my-auto d-flex">
 												<div className="d-flex justify-content-between w-100">
 													<span id="btnSearchInputGroup" className="material-icons">
 														search
