@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react";
 import { Country } from "./Country.jsx";
-import flag from "/public/mexFlag.jpg";
-import file from "/public/data.json"
+import flag from "../img/mexFlag.jpg"
+import file from "../../data2.json"
 
 //create your first component
 const Home = () => {
@@ -92,16 +92,7 @@ const Home = () => {
 							<div className="d-flex my-3">
 								<div className="container">
 									<div className="row">
-										<div className="col form-floating">
-											<select className="form-select form-select-lg h-100" aria-label=".form-select-lg example" >
-												<option defaultValue >Country</option>
-												<option value="1">One</option>
-												<option value="2">Two</option>
-												<option value="3">Three</option>
-												<Country country={location}/>
-											</select>
-											<label className="mx-3" htmlFor="floatingSelect">Destination</label>
-										</div>
+										<Country country={location}/>
 										<div className="col form-floating">
 											<select className="form-select form-select-lg h-100" aria-label=".form-select-lg example">
 												<option defaultValue >Provider</option>
