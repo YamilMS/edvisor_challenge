@@ -7,15 +7,17 @@ import file from "../../data2.json"
 const Home = () => {
 	const [campus, setCampus] = useState([]);
 	const [location, setLocation] = useState([]);
+	const [showCourses, setShowCourses] = useState(true)
+	const [showCountry, setShowCountry] = useState(false)
+	const [showProvider, setShowProvider] = useState(false)
+	const [weeks, setWeeks] = useState(0)
 
 	useEffect(()=>{
 		setCampus(file.data.getAvailableFiltersForLanguageSearch.campuses)
 		setLocation(file.data.getAvailableFiltersForLanguageSearch.locations)
-		
-		//console.log(location)
 	},[])
-	console.log(location)
-	console.log(campus.map(item=> item.id))
+	
+
 	return (
 		<div>
 
@@ -23,7 +25,7 @@ const Home = () => {
 			<nav className="navbar border">
   				<div className="container-fluid">
     				<a className="navbar-brand d-flex my-auto" href="#">
-						<span style={{color: " #1b7ced"}} className="material-icons mt-1 mx-2">
+						<span style={{color: "#1b7ced"}} className="material-icons mt-1 mx-2">
 							star
 						</span>
 						<div>Estudiar - Mexico City</div>
@@ -33,9 +35,9 @@ const Home = () => {
 			</nav>
 			{/*SIDE BAR CONTENT OF THE APP*/}
 			<div id="contentApp" className="row d-flex">
-					<div className="col-2 p-0">
-						<div className="dropdown p-2">
-							<button className="btn dropdown-toggle d-flex justify-content-between align-items-center mx-0 px-3 w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					<div className="col-2 p-1">
+						<div className="dropdown mx-2">
+							<button className="btn dropdown-toggle d-flex justify-content-between align-items-center mx-0 px-3 w-100" type="button" onClick={() => showCourses ? setShowCourses(false) : setShowCourses(true)}>
 								<span className="material-icons">
 									search
 								</span>
@@ -43,9 +45,9 @@ const Home = () => {
 									Search
 								</div>
 							</button>
-							<ul className="dropdown-menu">
-								<li><a className="dropdown-item" href="#">Courses</a></li>
-							</ul>
+							{(showCourses ? (
+								<div className="d-flex justify-content-center my-1 mx-1" style={{backgroundColor: "rgb(197, 230, 241, 0.5)", color: " #1b7ced"}}>Courses</div>
+							): "")}
 						</div>
 					</div>
 					{/*MAIN CONTENT OF THE APP*/}
