@@ -8,7 +8,6 @@ const Home = () => {
 	const [campus, setCampus] = useState([]);
 	const [location, setLocation] = useState([]);
 	const [showCourses, setShowCourses] = useState(true)
-	const [showCountry, setShowCountry] = useState(false)
 	const [showProvider, setShowProvider] = useState(false)
 	const [weeks, setWeeks] = useState(0)
 
