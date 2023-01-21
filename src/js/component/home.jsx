@@ -54,9 +54,9 @@ const Home = () => {
 													{/*TABS*/}
 					<div id="mainContent" className="col-10 p-0" >
 						<div id="containerSearchInputs" className="border mx-5 my-5">
-							<ul className="nav nav-tabs d-flex justify-content-between">
+							<ul className="nav nav-tabs d-flex justify-content-between border-down">
 								<div className="d-flex">
-									<li className="nav-item">
+									<li className="nav-item" style={{borderBottom:"1px solid Blue"}}>
 										<a className="nav-link active d-flex align-content-center py-3" aria-current="page" href="#">
 											<span className="material-icons" style={{color: "grey"}}>
 												chat_bubble_outline
