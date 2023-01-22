@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react";
 import { Country } from "./Country.jsx";
+import { Weeks } from "./Weeks.jsx";
 import flag from "../img/mexFlag.jpg"
 import file from "../../data2.json"
 
@@ -54,9 +55,9 @@ const Home = () => {
 													{/*TABS*/}
 					<div id="mainContent" className="col-10 p-0" >
 						<div id="containerSearchInputs" className="border mx-5 my-5">
-							<ul className="nav nav-tabs d-flex justify-content-between">
+							<ul className="nav nav-tabs d-flex justify-content-between border-down">
 								<div className="d-flex">
-									<li className="nav-item">
+									<li className="nav-item" style={{borderBottom:"1px solid Blue"}}>
 										<a className="nav-link active d-flex align-content-center py-3" aria-current="page" href="#">
 											<span className="material-icons" style={{color: "grey"}}>
 												chat_bubble_outline
@@ -103,15 +104,7 @@ const Home = () => {
 											</select>
 											<label className="mx-3" htmlFor="floatingSelect">Provider</label>
 										</div>
-										<div className="col form-floating">
-											<select className="form-select form-select-lg h-100" aria-label=".form-select-lg example">
-												<option defaultValue >Weeks</option>
-												<option value="1">One</option>
-												<option value="2">Two</option>
-												<option value="3">Three</option>
-											</select>
-											<label className="mx-3" htmlFor="floatingSelect">Min. number of weeks</label>
-										</div>
+										<Weeks />
 										<div className="col align-self-center d-flex justify-content-center">
 											<button type="button" className="btn btn-primary my-auto d-flex">
 												<div className="d-flex justify-content-between w-100">

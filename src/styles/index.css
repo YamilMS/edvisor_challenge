@@ -13,6 +13,11 @@ body{
 #mainContent{
     background: linear-gradient(to top,  #f6f6f6 0%,#f6f6f6 80%, #e2ecf1 80%,#e2ecf1 100%);
 }
+.nav-link{
+    border-top: 0 !important;
+    border-left: 0 !important;
+}
+
 #containerSearchInputs{
     background: white;
 }
@@ -22,3 +27,24 @@ body{
 .col-2{
     padding-left: 5em;
 }
+.scrollpsy{
+    margin-bottom: 10px;
+    max-height: 15em;
+    overflow-y: scroll;
+}
+.arrow {
+    border: solid grey;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  
+  .up {
+    transform: rotate(-120deg);
+    -webkit-transform: rotate(-135deg);
+  }
+  
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
