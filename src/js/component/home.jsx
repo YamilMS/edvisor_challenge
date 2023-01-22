@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react";
 import { Country } from "./Country.jsx";
+import { Provider } from "./Provider.jsx";
 import { Weeks } from "./Weeks.jsx";
 import flag from "../img/mexFlag.jpg"
 import file from "../../data2.json"
@@ -38,7 +39,7 @@ const Home = () => {
 					<div className="col-2 p-1">
 						<div className="dropdown mx-2">
 							<button className="btn dropdown-toggle d-flex justify-content-between align-items-center mx-0 px-3 w-100" type="button" onClick={() => showCourses ? setShowCourses(false) : setShowCourses(true)}>
-								<span className="material-icons">
+								<span className="material-icons" style={{color:"#1b7ced"}}>
 									search
 								</span>
 								<div>
@@ -46,7 +47,7 @@ const Home = () => {
 								</div>
 							</button>
 							{(showCourses ? (
-								<div className="d-flex justify-content-center my-1 mx-1" style={{backgroundColor: "rgb(197, 230, 241, 0.5)", color: " #1b7ced"}}>Courses</div>
+								<div className="d-flex justify-content-center py-1 my-1 mx-1" style={{backgroundColor: "rgb(197, 230, 241, 0.5)", color: "#1b7ced"}}>Courses</div>
 							): "")}
 						</div>
 					</div>
@@ -95,15 +96,7 @@ const Home = () => {
 								<div className="container">
 									<div className="row">
 										<Country country={location}/>
-										<div className="col form-floating">
-											<select className="form-select form-select-lg h-100" aria-label=".form-select-lg example">
-												<option defaultValue >Provider</option>
-												<option value="1">One</option>
-												<option value="2">Two</option>
-												<option value="3">Three</option>
-											</select>
-											<label className="mx-3" htmlFor="floatingSelect">Provider</label>
-										</div>
+										<Provider provider={showCourses} />
 										<Weeks />
 										<div className="col align-self-center d-flex justify-content-center">
 											<button type="button" className="btn btn-primary my-auto d-flex">
