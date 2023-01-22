@@ -5,14 +5,17 @@ html{
 
 body{
     height: 100vh;
+    overflow: hidden;
 }
 
 #contentApp{
     height: 100vh;
 }
+
 #mainContent{
     background: linear-gradient(to top,  #f6f6f6 0%,#f6f6f6 80%, #e2ecf1 80%,#e2ecf1 100%);
 }
+
 .nav-link{
     border-top: 0 !important;
     border-left: 0 !important;
@@ -21,30 +24,48 @@ body{
 #containerSearchInputs{
     background: white;
 }
+
 #btnSearchInputGroup{
     padding-right: 0.5em;
 }
+
 .col-2{
     padding-left: 5em;
 }
+
 .scrollpsy{
     margin-bottom: 10px;
     max-height: 15em;
     overflow-y: scroll;
 }
+::-webkit-scrollbar {
+    width: 0.35em;
+}
+::-webkit-scrollbar-thumb {
+    background: #e4e1e1;
+    border-radius: 4em;
+    height: 6em;
+}
+
 .arrow {
     border: solid grey;
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
-  }
-  
-  .up {
+}
+.up {
     transform: rotate(-120deg);
     -webkit-transform: rotate(-135deg);
-  }
-  
-  .down {
+}
+.down {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
-  }
+}
+
+.confirmButton{
+    border: 1px solid lightgray;
+}
+.confirmButton:hover{
+    background: #dedede !important;
+    border: 1px solid lightgray !important;
+}
