@@ -4,29 +4,60 @@ export const Country = (props) => {
     const dataCampus = props.country;
     const [country, setCountry] = useState([])
     const [showCountry, setShowCountry] = useState(false)
-    const obj = {};
     console.log(dataCampus)
-    console.log(showCountry)
-
-        const countryList= dataCampus.map((item, idx)=>{
-
-            const individualCountry = item.name.split(",").slice(-1)
-            const course = item.name.split(",").slice(0, -1)
-            //obj[individualCountry] += course;
-            //console.log(course)
-            
-        
-            return(
-                <li className="list-group-item d-flex justify-content-between mx-2 border-0" key={idx} onMouseOver={(e)=>e.target.style.background = 'lightBlue'}>{individualCountry}</li>
-            )
-
+    
+    const selectCountry = (e) =>{
+        country.map((item, index)=> {
+            if(country.includes(item)){
+                console.log(item)
+            }else{
+                console.log('meeeh')
+            }
         })
+        e.target.style.background = 'lightBlue';
+        e.target.querySelector('span').style.display= 'block';
+        if(!country.includes(e.target.id)){
+            setCountry([...country, e.target.id]);
+        } else {
+            e.target.style.background = 'transparent';
+            e.target.querySelector('span').style.display= 'none';
+            setCountry(country.filter((item, idx) => item !== e.target.id))
+        }
+    }
+
+    const deleteCountry= (e)=>{
+		const newSelectCountry= country.filter((item, idx)=>idx !== parseInt(e.target.id));
+		setCountry(newSelectCountry);
+	}
+   
+    const countryList= dataCampus.map((item, idx)=>{
+        const individualCountry = item.name.split(",").slice(0, -1);
+        const course = item.name.split(", ").slice(0, -1);
+        return(
+            <li className="list-group-item d-flex justify-content-between mx-2 border-0" key={idx} value={idx} id={individualCountry} onClick={selectCountry}>
+                {individualCountry}
+                <span className="material-icons" id={idx} style={{color:"#1b7ced", display:"none"}}>
+                    done
+                </span>
+            </li>
+        )
+    })
+
+    const countrySelected = country.map((item, idx) =>{
+        return(
+            <li className="list-group-item d-flex justify-content-between py-0 px-2 border-0" key={idx} style={{background:"#dedede"}}>
+                {item}
+                <button className="button btn-close justify-content-end" id={idx} onClick={deleteCountry}  aria-label="Close" ></button>
+            </li>
+        )
+    })
+        
         
     return (
                                             /* INPUT BOX*/ 
         <div className="col">
                 <form className="form-floating d-flex align-items-center">
-                    <input type="email" className="form-control" id="floatingInputValue" placeholder="Search" onChange={(e)=>setCountry(e.target.value)} onMouseOver={()=> !showCountry ? (setShowCountry(!showCountry)) : null}/>
+                    <input type="email" className="form-control" id="floatingInputValue" placeholder="Search" onChange={(e)=>setCountry(e.target.value)} onClick={()=> !showCountry ? (setShowCountry(!showCountry)) : null}/>
                     <span className="material-icons" style={{position:"absolute", color:"grey",  left: "85%", top:"40%"}}>
 									search
 					</span>
@@ -34,7 +65,8 @@ export const Country = (props) => {
                 </form>
 
                                             {/*DISPLAY OF COUNTRIES*/}
-            <div className="w-50 my-1"  style={{position:"absolute", marginLeft:"0.8em"}} onMouseLeave={()=> showCountry ? (setShowCountry(!showCountry)) : null}>
+            { showCountry ?(
+                <div className="w-50 my-1"  style={{position:"absolute", marginLeft:"0.8em"}} onMouseLeave={()=> showCountry ? (setShowCountry(!showCountry)) : null}>
                 <div className="row d-flex shadow border" style={{background:"white"}}>
                                 <div className="scrollpsy col-8 p-0">
                                     <p className="fw-bolder small mx-3 my-2">Results</p>
@@ -43,9 +75,9 @@ export const Country = (props) => {
                                     </ul>
                                 </div>
                                 <div className="col-4 d-flex flex-column align-items-center justify-items-between p-0" style={{background:"#f6f6f6"}}>
-                                    <p className="d-flex align-self-start small fw-bolder mx-3 my-2">Selected({"array.length"})</p>
+                                    <p className="d-flex align-self-start small fw-bolder mx-3 my-2">Selected({country.length})</p>
                                     <ul className="list-group w-75">
-                                        <li className="list-group-item d-flex justify-content-between py-0 px-2 border-0" style={{background:"#dedede"}}>Selected countries<button className="button btn-close justify-content-end"  aria-label="Close" ></button></li>
+                                       {countrySelected}
                                     </ul>
                                 </div>
                 </div>
@@ -56,6 +88,8 @@ export const Country = (props) => {
                     </div>
                 </div>
             </div>
+            ): ""}                                
+            
         </div>
     )
 
