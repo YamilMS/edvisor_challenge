@@ -53,9 +53,9 @@ export const Country = (props) => {
 
     const countrySelected = country.map((item, idx) =>{
         return(
-            <li className="list-group-item d-flex justify-content-between py-0 px-2 border-0" key={idx} id={idx} style={{background:"#dedede"}}>
+            <li className="list-group-item d-flex justify-content-between my-2 py-0 px-2 border-0" key={idx} id={idx} style={{background:"#dedede"}}>
                 {item}
-                <button className="button btn-close justify-content-end" id={idx} onClick={deleteCountry}  aria-label="Close" ></button>
+                <button className="d-flex align-self-center px-2 button btn-close justify-content-end" id={idx} onClick={deleteCountry}  aria-label="Close" ></button>
             </li>
         )
     })
@@ -81,7 +81,7 @@ export const Country = (props) => {
                                         {countryList}
                                     </ul>
                                 </div>
-                                <div className="col-4 d-flex flex-column align-items-center justify-items-between p-0" style={{background:"#f6f6f6"}}>
+                                <div className="scrollpsy col-4 d-flex flex-column align-items-center justify-items-between p-0" style={{background:"#f6f6f6"}}>
                                     <p className="d-flex align-self-start small fw-bolder mx-3 my-2">Selected({country.length})</p>
                                     <ul className="list-group w-75">
                                        {countrySelected}
