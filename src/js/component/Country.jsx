@@ -38,7 +38,7 @@ export const Country = (props) => {
         return(
             <li className="list-group-item d-flex justify-content-between mx-2 border-0" key={idx} value={idx} id={individualCountry} onClick={selectCountry}>
                 {individualCountry}
-                <span className="material-icons" id={idx} style={{color:"#1b7ced", display:"none"}}>
+                <span className="material-icons" id={individualCountry} style={{color:"#1b7ced", display:"none"}}>
                     done
                 </span>
             </li>
@@ -66,8 +66,8 @@ export const Country = (props) => {
                 </form>
 
                                             {/*DISPLAY OF COUNTRIES*/}
-            { showCountry ? (
-                <div className="w-50 my-1"  style={{position:"absolute", marginLeft:"0.8em"}} onMouseLeave={()=>{ showCountry ? (setShowCountry(!showCountry)) : null; setCountry(displayCountry)}}>
+    
+                <div className="w-50 my-1"  style={{position:"absolute", marginLeft:"0.8em", display:`${showCountry ? "inline" : "none"}`}} onMouseLeave={()=>{ showCountry ? (setShowCountry(!showCountry)) : null; setCountry(displayCountry)}}>
                 <div className="row d-flex shadow border" style={{background:"white"}}>
                                 <div className="scrollpsy col-8 p-0">
                                     <p className="fw-bolder small mx-3 my-2">Results</p>
@@ -88,33 +88,8 @@ export const Country = (props) => {
                         <button type="button" className="confirmButton btn btn-outline-secondary" onClick={()=> setCountry(displayCountry)} style={{color:"black"}}>Confirm</button>
                     </div>
                 </div>
-            </div>
-            ) :(
-                <div className="w-50 my-1"  style={{position:"absolute", marginLeft:"0.8em", display:"none"}} onMouseLeave={()=> showCountry ? (setShowCountry(!showCountry)) : null}>
-                <div className="row d-flex shadow border" style={{background:"white"}}>
-                                <div className="scrollpsy col-8 p-0">
-                                    <p className="fw-bolder small mx-3 my-2">Results</p>
-                                    <ul className="list-group">
-                                        {countryList}
-                                    </ul>
-                                </div>
-                                <div className="col-4 d-flex flex-column align-items-center justify-items-between p-0" style={{background:"#f6f6f6"}}>
-                                    <p className="d-flex align-self-start small fw-bolder mx-3 my-2">Selected({displayCountry.length})</p>
-                                    <ul className="list-group w-75">
-                                       {countrySelected}
-                                    </ul>
-                                </div>
-                </div>
-                <div className="row d-flex shadow border">
-                    <div className="d-flex justify-content-end p-2" style={{background:"white"}}> 
-                        <button type="button" className="btn">Cancel</button>
-                        <button type="button" className="confirmButton btn btn-outline-secondary" style={{color:"black"}}>Confirm</button>
-                    </div>
-                </div>
-            </div>
-            )
-            }                                
-            
+            </div>                             
+        
         </div>
     )
 
