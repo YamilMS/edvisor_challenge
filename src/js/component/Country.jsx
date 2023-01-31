@@ -1,11 +1,13 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
 
 export const Country = (props) => {
+    const {store, actions} = useContext(Context);
     const dataCampus = props.country;
-    const [displayCountry, setDisplayCountry] = useState([])
-    const [showCountry, setShowCountry] = useState(false)
-    const [country, setCountry] = useState([])
-    console.log(country)
+    const [displayCountry, setDisplayCountry] = useState([]);
+    const [showCountry, setShowCountry] = useState(false);
+    const [country, setCountry] = useState([]);
+    console.log("Para testear", store.id);
 
     
     const selectCountry = (e) =>{

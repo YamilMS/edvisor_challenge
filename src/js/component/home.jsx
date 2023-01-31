@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from "react";
+import injectContext from "../store/appContext";
 import { Country } from "./Country.jsx";
 import { Provider } from "./Provider.jsx";
 import { Weeks } from "./Weeks.jsx";
@@ -9,9 +10,7 @@ import file from "../../data2.json"
 const Home = () => {
 	const [campus, setCampus] = useState([]);
 	const [location, setLocation] = useState([]);
-	const [showCourses, setShowCourses] = useState(true)
-	const [showProvider, setShowProvider] = useState(false)
-	const [weeks, setWeeks] = useState(0)
+	const [showCourses, setShowCourses] = useState(true);
 
 	useEffect(()=>{
 		setCampus(file.data.getAvailableFiltersForLanguageSearch.campuses)
@@ -122,4 +121,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default injectContext(Home);
