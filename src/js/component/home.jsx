@@ -1,21 +1,23 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "../store/appContext";
 import injectContext from "../store/appContext";
 import { Country } from "./Country.jsx";
 import { Provider } from "./Provider.jsx";
 import { Weeks } from "./Weeks.jsx";
-import flag from "../img/mexFlag.jpg"
+import flag from "../../img/mexFlag.jpg"
 import file from "../../data2.json"
 
 //create your first component
 const Home = () => {
+	const {store, actions} = useContext(Context);
 	const [campus, setCampus] = useState([]);
-	const [location, setLocation] = useState([]);
 	const [showCourses, setShowCourses] = useState(true);
 
 	useEffect(()=>{
-		setCampus(file.data.getAvailableFiltersForLanguageSearch.campuses)
-		setLocation(file.data.getAvailableFiltersForLanguageSearch.locations)
+		setCampus(file.data.getAvailableFiltersForLanguageSearch.campuses);
+		actions.getData(file.data.getAvailableFiltersForLanguageSearch.locations);
 	},[])
+	
 	
 
 	return (
@@ -94,7 +96,7 @@ const Home = () => {
 							<div className="d-flex my-3">
 								<div className="container">
 									<div className="row">
-										<Country country={location}/>
+										<Country country={store.data}/>
 										<Provider provider={showCourses} />
 										<Weeks />
 										<div className="col align-self-center d-flex justify-content-center">

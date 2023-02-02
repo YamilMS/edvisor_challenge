@@ -7,7 +7,7 @@ export const Country = (props) => {
     const [displayCountry, setDisplayCountry] = useState([]);
     const [showCountry, setShowCountry] = useState(false);
     const [country, setCountry] = useState([]);
-    console.log("Para testear", store.id);
+    //console.log("Para testear", store.data);
 
     
     const selectCountry = (e) =>{

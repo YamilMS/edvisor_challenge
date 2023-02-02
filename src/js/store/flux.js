@@ -1,10 +1,11 @@
 const getState = ({ getStore, getActions, setStore }) => {
     return {
       store: {
+        data: [],
         message: null,
         token: null,
         rol: null,
-        id: null,
+        id: 0,
         demo: [
           {
             title: "FIRST",
@@ -23,6 +24,10 @@ const getState = ({ getStore, getActions, setStore }) => {
         // Use getActions to call a function within a fuction
         exampleFunction: () => {
           getActions().changeColor(0, "green");
+        },
+
+        getData: (parametro) =>{
+          setStore({data: parametro})
         },
         /*
   
