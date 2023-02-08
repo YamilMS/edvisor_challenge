@@ -15,8 +15,9 @@ const Home = () => {
 
 	useEffect(()=>{
 		setCampus(file.data.getAvailableFiltersForLanguageSearch.campuses);
-		actions.getData(file.data.getAvailableFiltersForLanguageSearch.locations);
+		actions.getCountryLocation(file.data.getAvailableFiltersForLanguageSearch.locations);
 	},[])
+	console.log(file.data.getAvailableFiltersForLanguageSearch.campuses)
 	
 	
 
@@ -96,7 +97,7 @@ const Home = () => {
 							<div className="d-flex my-3">
 								<div className="container">
 									<div className="row">
-										<Country country={store.data}/>
+										<Country country={store.countryLocation}/>
 										<Provider provider={showCourses} />
 										<Weeks />
 										<div className="col align-self-center d-flex justify-content-center">

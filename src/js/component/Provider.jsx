@@ -26,7 +26,7 @@ export const Provider = (props) => {
                                             /* INPUT BOX*/ 
         <div className="col">
                 <form className="form-floating d-flex align-items-center">
-                    <input type="email" className="form-control" id="floatingInputValue" placeholder="Search" value={"Any"} onChange={(e)=>setProvider(e.target.value)} onMouseOver={()=> !showProvider ? (setShowProvider(!showProvider)) : null}/>
+                    <input type="email" className="form-control" id="floatingInputValue" placeholder="Search" value={"Any"} onChange={(e)=>setProvider(e.target.value)} onMouseOver={()=> !showProvider ? setShowProvider(!showProvider) : null}/>
                     <span className="material-icons" style={{position:"absolute", color:"grey",  left: "85%", top:"40%"}}>
 									search
 					</span>
