@@ -9,7 +9,7 @@ export const Country = (props) => {
     const [country, setCountry] = useState([]);
     console.log("Para testear", dataCampus);
 
-    
+    // Function that handle the locations selected in the country field and do the changes in the style when selected or deselected
     const selectCountry = (e) =>{
         if(!displayCountry.includes(e.target.id)){
             setDisplayCountry([...displayCountry, e.target.id]);
@@ -24,6 +24,7 @@ export const Country = (props) => {
         }
     }
 
+    // Function that handle the delete action from the X span in the country field
     const deleteCountry= (e)=>{
 		const newSelectCountry= displayCountry.filter((item, idx)=>idx !== parseInt(e.target.id));
 		setDisplayCountry(newSelectCountry);
@@ -36,6 +37,7 @@ export const Country = (props) => {
         })
 	}
    
+    // Generating the elements in the country fields with all the locations.
     const countryList= dataCampus.map((item, idx)=>{
         const individualCountry = item.name.split(",");
         return(
@@ -48,6 +50,7 @@ export const Country = (props) => {
         )
     })
 
+    // Generating the element populated with the locations once selected.
     const countrySelected = displayCountry.map((item, idx) =>{
         return(
             <li className="list-group-item d-flex justify-content-between my-2 py-0 px-2 border-0" key={idx} id={idx} style={{background:"#dedede"}}>
@@ -57,6 +60,8 @@ export const Country = (props) => {
         )
     })
         
+
+    
     return (
                                             /* INPUT BOX*/ 
         <div className="col">
