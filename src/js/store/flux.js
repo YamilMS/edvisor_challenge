@@ -1,8 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
     return {
       store: {
-        data: [],
-        message: null,
+        countryLocation: [],
+        providerSelected: [],
         token: null,
         rol: null,
         id: 0,
@@ -26,8 +26,12 @@ const getState = ({ getStore, getActions, setStore }) => {
           getActions().changeColor(0, "green");
         },
 
-        getData: (parametro) =>{
-          setStore({data: parametro})
+        getCountryLocation: (param) =>{
+          setStore({countryLocation: param})
+        },
+
+        getProviderSelected: (param)=>{
+          setStore({providerSelected: param})
         },
         /*
   

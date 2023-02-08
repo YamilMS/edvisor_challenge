@@ -7,7 +7,7 @@ export const Country = (props) => {
     const [displayCountry, setDisplayCountry] = useState([]);
     const [showCountry, setShowCountry] = useState(false);
     const [country, setCountry] = useState([]);
-    //console.log("Para testear", store.data);
+    console.log("Para testear", dataCampus);
 
     
     const selectCountry = (e) =>{
@@ -15,6 +15,8 @@ export const Country = (props) => {
             setDisplayCountry([...displayCountry, e.target.id]);
             e.target.style.background = 'lightBlue';
             e.target.querySelector('span').style.display= 'block';
+        } else if( e.target.querySelector('span').style.display==null){
+            pass;
         } else {
             e.target.style.background = 'transparent';
             e.target.querySelector('span').style.display= 'none';
@@ -35,8 +37,7 @@ export const Country = (props) => {
 	}
    
     const countryList= dataCampus.map((item, idx)=>{
-        const individualCountry = item.name.split(",").slice(0, -1);
-        const course = item.name.split(", ").slice(0, -1);
+        const individualCountry = item.name.split(",");
         return(
             <li className="list-group-item d-flex justify-content-between mx-2 border-0" key={idx} value={idx} id={individualCountry} onClick={selectCountry}>
                 {individualCountry}
