@@ -3,6 +3,7 @@ import React, { useState, useEffect} from "react";
 export const Weeks = () => {
     const [numWeeks, setNumWeeks] = useState(0)
 
+    //Function to handle only positive values on the weeks field.
     const downWeeks= () =>{
         if(numWeeks>0){
             setNumWeeks(numWeeks -1)

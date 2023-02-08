@@ -14,6 +14,7 @@ const Home = () => {
 	const [showCourses, setShowCourses] = useState(true);
 
 	useEffect(()=>{
+		// Getting the information from the "back-end" and put it in the store
 		setCampus(file.data.getAvailableFiltersForLanguageSearch.campuses);
 		actions.getCountryLocation(file.data.getAvailableFiltersForLanguageSearch.locations);
 	},[])
@@ -97,7 +98,7 @@ const Home = () => {
 							<div className="d-flex my-3">
 								<div className="container">
 									<div className="row">
-										<Country country={store.countryLocation}/>
+										<Country country={store.countryLocation} />
 										<Provider provider={showCourses} />
 										<Weeks />
 										<div className="col align-self-center d-flex justify-content-center">
