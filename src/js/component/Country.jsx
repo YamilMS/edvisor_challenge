@@ -8,6 +8,7 @@ export const Country = (props) => {
     const [showCountry, setShowCountry] = useState(false);
     const [country, setCountry] = useState([]);
     console.log("Para testear", dataCampus);
+    console.log('Esto es la store', store.providerSelected);
 
     // Function that handle the locations selected in the country field and do the changes in the style when selected or deselected
     const selectCountry = (e) =>{
