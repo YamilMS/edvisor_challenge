@@ -10,15 +10,13 @@ import file from "../../data2.json"
 //create your first component
 const Home = () => {
 	const {store, actions} = useContext(Context);
-	const [campus, setCampus] = useState([]);
 	const [showCourses, setShowCourses] = useState(true);
 
 	useEffect(()=>{
 		// Getting the information from the "back-end" and put it in the store
-		setCampus(file.data.getAvailableFiltersForLanguageSearch.campuses);
+		actions.getProviderSelected(file.data.getAvailableFiltersForLanguageSearch.campuses);
 		actions.getCountryLocation(file.data.getAvailableFiltersForLanguageSearch.locations);
 	},[])
-	console.log(file.data.getAvailableFiltersForLanguageSearch.campuses)
 	
 	
 
