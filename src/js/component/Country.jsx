@@ -1,14 +1,15 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 
-export const Country = (props) => {
+export const Country = () => {
     const {store, actions} = useContext(Context);
-    const dataCampus = props.country;
     const [displayCountry, setDisplayCountry] = useState([]);
     const [showCountry, setShowCountry] = useState(false);
     const [country, setCountry] = useState([]);
-    console.log("Para testear", dataCampus);
-    console.log('Esto es la store', store.providerSelected);
+    const locations = store.countryLocation;
+    const campuses= store.providerSelected;
+    console.log("Para testear", locations);
+    console.log('Esto es la store', campuses);
 
     // Function that handle the locations selected in the country field and do the changes in the style when selected or deselected
     const selectCountry = (e) =>{
@@ -39,7 +40,7 @@ export const Country = (props) => {
 	}
    
     // Generating the elements in the country fields with all the locations.
-    const countryList= dataCampus.map((item, idx)=>{
+    const countryList= locations.map((item, idx)=>{
         const individualCountry = item.name.split(",");
         return(
             <li className="list-group-item d-flex justify-content-between mx-2 border-0" key={idx} value={idx} id={individualCountry} onClick={selectCountry}>

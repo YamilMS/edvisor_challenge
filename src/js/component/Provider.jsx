@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react";
 
-export const Provider = (props) => {
-    const dataProvider = props.provider;
+export const Provider = () => {
+    //const dataProvider = props.provider;
     const [provider, setProvider] = useState([])
     const [showProvider, setShowProvider] = useState(false)
     const obj = {};

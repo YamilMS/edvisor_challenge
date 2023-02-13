@@ -96,8 +96,8 @@ const Home = () => {
 							<div className="d-flex my-3">
 								<div className="container">
 									<div className="row">
-										<Country country={store.countryLocation} />
-										<Provider provider={showCourses} />
+										<Country />
+										<Provider />
 										<Weeks />
 										<div className="col align-self-center d-flex justify-content-center">
 											<button type="button" className="btn btn-primary my-auto d-flex">
